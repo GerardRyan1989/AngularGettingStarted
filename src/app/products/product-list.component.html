@@ -32,11 +32,11 @@
         </thead>
         <tbody *ngFor="let product of filteredProducts">
         <tr>
-          <td><img *ngIf="showImage" [src]="product?.imageUrl" [title]="product?.productName" [style.width.px]="imageWidth" [style.margin.px]="imageMargin" alt="ProductImage"></td>
-          <td>{{product?.productName}}</td>
-          <td>{{product?.productCode | lowercase | convertToSpaces: '-'}}</td>
-          <td>{{product?.releaseDate}}</td>
-          <td>{{product?.price | currency: 'EUR': 'symbol' : '1.2-2' | lowercase}} </td>
+          <td><a [routerLink]="['/products', product.productId]"><img *ngIf="showImage" [src]="product?.imageUrl" [title]="product?.productName" [style.width.px]="imageWidth" [style.margin.px]="imageMargin" alt="ProductImage"></td>
+          <td><a [routerLink]="['/products', product.productId]">{{product?.productName}}</a></td>
+          <td><a [routerLink]="['/products', product.productId]">{{product?.productCode | lowercase | convertToSpaces: '-'}}</a></td>
+          <td><a [routerLink]="['/products', product.productId]">{{product?.releaseDate}}</a></td>
+          <td><a [routerLink]="['/products', product.productId]">{{product?.price | currency: 'EUR': 'symbol' : '1.2-2' | lowercase}} </a></td>
           <td><pm-star [rating]="product?.starRating" (ratingClicked)="onRatingClicked($event)"></pm-star></td>
         </tr>
         </tbody>
